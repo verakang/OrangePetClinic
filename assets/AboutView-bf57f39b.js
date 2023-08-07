@@ -1,0 +1,1 @@
+import{_ as e,o as t,c as o,a as _}from"./index-cee6013a.js";const s={},c={class:"about"},n=_("h1",null,"這是關於我頁面",-1),a=[n];function r(i,d){return t(),o("div",c,a)}const u=e(s,[["render",r]]);export{u as default};
