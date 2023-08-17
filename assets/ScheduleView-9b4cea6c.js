@@ -1,0 +1,1 @@
+import{_ as e,o as c,c as o,a as s}from"./index-43909935.js";const t={},n={class:"container"},_=s("h1",null,"當月班表",-1),a=[_];function r(d,i){return c(),o("div",n,a)}const f=e(t,[["render",r]]);export{f as default};
