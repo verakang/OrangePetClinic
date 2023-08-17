@@ -298,20 +298,22 @@ $cyans: (
 // fusv-enable
 
 // scss-docs-start theme-color-variables
-$primary:       $blue !default;
-$secondary:     $gray-600 !default;
+$primary:       #1ca0b8;//$blue !default;
+$secondary:     #e3eff3; //$gray-600 !default;
+$notice:        #fea386 !default;
 $success:       $green !default;
 $info:          $cyan !default;
 $warning:       $yellow !default;
 $danger:        $red !default;
 $light:         $gray-100 !default;
-$dark:          $gray-900 !default;
+$dark:          $gray-800 !default;
 // scss-docs-end theme-color-variables
 
 // scss-docs-start theme-colors-map
 $theme-colors: (
   "primary":    $primary,
   "secondary":  $secondary,
+  "notice":     $notice,
   "success":    $success,
   "info":       $info,
   "warning":    $warning,
@@ -412,9 +414,14 @@ $spacers: (
   0: 0,
   1: $spacer * .25,
   2: $spacer * .5,
-  3: $spacer,
-  4: $spacer * 1.5,
-  5: $spacer * 3,
+  3: $spacer * .75,
+  4: $spacer * 1,
+  5: $spacer * 1.5,
+  6: $spacer * 2,
+  7: $spacer * 2.5,
+  8: $spacer * 3,
+  9: $spacer * 4,
+  10: $spacer * 5,
 ) !default;
 // scss-docs-end spacer-variables-maps
 
@@ -426,7 +433,7 @@ $spacers: (
 $position-values: (
   0: 0,
   50: 50%,
-  100: 100%
+  100: 100%,
 ) !default;
 // scss-docs-end position-map
 
@@ -603,7 +610,7 @@ $aspect-ratios: (
 
 // scss-docs-start font-variables
 // stylelint-disable value-keyword-case
-$font-family-sans-serif:      system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-sans-serif:      Prompt, system-ui, -apple-system, "Segoe UI", "Microsoft JhengHei", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
 $font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 // stylelint-enable value-keyword-case
 $font-family-base:            var(--#{$prefix}font-sans-serif) !default;
