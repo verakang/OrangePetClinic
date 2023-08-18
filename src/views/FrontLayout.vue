@@ -12,7 +12,7 @@
         <div class="collapse navbar-collapse text-center" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <RouterLink to="/" class="nav-link p-4">首頁</RouterLink>
+            <RouterLink to="/home" class="nav-link p-4">首頁</RouterLink>
           </li>
           <li class="nav-item">
             <RouterLink to="/about" class="nav-link p-4">關於我們</RouterLink>
@@ -74,7 +74,7 @@
       </ul>
       </div>
       <div class="row align-items-lg-center flex-column-reverse flex-lg-row">
-        <div class="col-11 col-lg-5 mt-5 mt-lg-0 ms-auto">ㄇㄠ
+        <div class="col-11 col-lg-5 mt-5 mt-lg-0 ms-auto">
           <h3>LOGO</h3>
           <ul class="list-unstyled">
             <li><a href="tel:0228881588" class="text-dark"><span class="material-symbols-rounded fs-5 me-2 align-text-top">call</span>02-28881588</a></li>
@@ -107,7 +107,7 @@
   .nav-item .nav-link:hover {
     background-color: #b5d5db;
   }
-  .nav-item .active{
+  .nav-item .router-link-active{
     background-color: #b5d5db;
   }
   .footer {

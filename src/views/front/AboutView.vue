@@ -2,7 +2,7 @@
   <section class="about-banner px-4 py-7 d-flex align-items-center">
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 ms-auto bg-secondary opacity-75 p-5 rounded-4">
+        <div class="about-content col-lg-6 ms-auto p-5 rounded-4">
           <h2 class="mb-4">橘子動物醫院簡介<span class="display-2 text-notice d-none d-lg-inline-block">About</span></h2>
           <p>歡迎來到橘子動物醫院！我們致力於為您的毛小孩提供最優質的醫療服務，以專業知識和貼心關懷照顧每一位家庭成員。我們的獸醫團隊充滿熱情，擁有豐富臨床經驗，提供從健康檢查、疫苗接種到手術等全方位的醫療解決方案。</p>
           <p>我們更著重於與您的互動，願意分享養寵物的珍貴經驗和建議，提供日常照顧、飲食指導和行為建議等，確保您和寵物的每一刻都充滿愛和溫暖</p>
@@ -78,5 +78,8 @@
   background-size: cover;
   background-position: center;
   min-height: calc(100vh - 131px)
+}
+.about-content {
+  background: rgb(226, 239, 243, 0.8);
 }
 </style>
