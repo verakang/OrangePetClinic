@@ -1,1 +1,0 @@
-import{_ as e,o as t,c,a as o}from"./index-43909935.js";const s={},n={class:"container"},a=o("h1",null,"聯絡我們",-1),_=[a];function r(i,d){return t(),c("div",n,_)}const f=e(s,[["render",r]]);export{f as default};

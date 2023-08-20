@@ -1,1 +1,0 @@
-import{_ as e,o,c as s,a as c}from"./index-43909935.js";const t={},n={class:"container"},_=c("h1",null,"服務項目",-1),a=[_];function r(i,d){return o(),s("div",n,a)}const f=e(t,[["render",r]]);export{f as default};
