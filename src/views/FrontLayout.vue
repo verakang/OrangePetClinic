@@ -12,9 +12,6 @@
         <div class="collapse navbar-collapse text-center" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <RouterLink to="/home" class="nav-link p-4">首頁</RouterLink>
-          </li>
-          <li class="nav-item">
             <RouterLink to="/about" class="nav-link p-4">關於我們</RouterLink>
           </li>
           <li class="nav-item">
