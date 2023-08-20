@@ -55,7 +55,7 @@
   </section>
   <section class="container pt-7 pb-10">
     <div class="row justify-content-center">
-      <h2 class="text-center mb-7 fst-italic">最新消息<span class="display-2 text-secondary">/news</span></h2>
+      <h2 class="text-center mb-7 fst-italic">最新消息<span class="display-2 text-secondary">/News</span></h2>
       <ul class="news-list col-10 col-lg-10 list-unstyled">
         <li class="px-5 py-6 position-relative border-bottom">
           <time datetime="2023-08-15" class="border-bottom border-2 border-primary text-primary">2023/08/15</time>

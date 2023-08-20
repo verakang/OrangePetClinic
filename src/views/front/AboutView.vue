@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="about-content col-lg-6 ms-auto p-5 rounded-4">
-          <h2 class="mb-4">橘子動物醫院簡介<span class="display-2 text-notice d-none d-lg-inline-block">About</span></h2>
+          <h2 class="mb-4 fst-italic">橘子動物醫院簡介<span class="display-2 text-notice d-none d-lg-inline-block">About</span></h2>
           <p>歡迎來到橘子動物醫院！我們致力於為您的毛小孩提供最優質的醫療服務，以專業知識和貼心關懷照顧每一位家庭成員。我們的獸醫團隊充滿熱情，擁有豐富臨床經驗，提供從健康檢查、疫苗接種到手術等全方位的醫療解決方案。</p>
           <p>我們更著重於與您的互動，願意分享養寵物的珍貴經驗和建議，提供日常照顧、飲食指導和行為建議等，確保您和寵物的每一刻都充滿愛和溫暖</p>
           <p>在橘子動物醫院，預防是我們的重點，定期健康檢查有助於早期發現潛在問題，讓您的寵物遠離疾病煩惱。我們將根據寵物的特定需求，量身定制健康管理計劃，讓牠們擁有健康長壽的美好生活。</p>
@@ -14,7 +14,7 @@
     </div>
   </section>
   <section class="container py-10">
-    <h2 class="text-center mb-7">醫師陣容</h2>
+    <h2 class="text-center mb-7 fst-italic">醫師陣容<span class="display-2 text-secondary">/Team</span></h2>
     <div class="row col-lg-10 row-cols-1 row-cols-lg-2 gy-7 mx-auto">
       <div class="col">
         <img src="../../assets/img/doctor_01.jpg" class="w-100 rounded-4" alt="">

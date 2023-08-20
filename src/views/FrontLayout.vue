@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top d-flex flex-column py-0">
     <div class="container pt-5 pb-4 position-relative">
         <RouterLink to="/" class="h3 mb-0">橘子動物醫院 Orange Pet Clinic</RouterLink>
-        <div class="d-none d-lg-block"><div class="btn btn-secondary rounded-pill position-absolute bottom-0 end-0 mb-3 fs-5 px-4"><span class="material-symbols-rounded fs-3 me-2 align-text-top">call</span>02-28881588</div></div>
+        <div class="d-none d-lg-block"><div class="btn btn-secondary rounded-pill position-absolute bottom-0 end-0 mb-3 fs-5 px-4"><span class="material-symbols-rounded fs-5 me-2 mb-1 align-middle">call</span>02-28881588</div></div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
