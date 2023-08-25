@@ -1,0 +1,75 @@
+// nav footer 設定
+.layout-set {
+  padding-top: 75px;
+  @media (min-width: 992px) {
+    padding-top: 134px;
+  }
+}
+.navbar-nav {
+  font-size: 18px;
+}
+.nav-logo {
+  display: block;
+  width: 200px;
+  height: 51px;
+  background-image: url("../../src/assets/img/logo.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-indent: 101%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.nav-item .nav-link {
+  position: relative;
+  &::after {
+    content: '';
+    width: 0%;
+    height: 4px;
+    background-color: #1ca0b8;
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    transform: translateX(50%);
+    transition: 0.5s ease-out;
+  }
+  &:hover {
+    &::after {
+      width: 50%;
+    }
+  }
+}
+.nav-item .router-link-active{
+  color: #343a40;
+  &::after {
+    content: '';
+    width: 50%;
+    height: 4px;
+    background-color: #1ca0b8;
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    transform: translateX(50%);
+  }
+}
+.footer {
+  background-image: linear-gradient(to top, rgba(227, 239, 243, 1), rgba(227, 239, 243, 0.1));
+}
+.footer .nav-link:hover {
+  color: #1ca0b8;
+}
+.footer-logo {
+  display: block;
+  width: 200px;
+  height: 51px;
+  background-image: url("../../src/assets/img/logo.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-indent: 101%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+// 多頁面共用
+.subtitle {
+  vertical-align: -5px;
+}

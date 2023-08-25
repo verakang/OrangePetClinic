@@ -1,8 +1,11 @@
 <template>
+  <div class="fixed-bottom text-end me-7 mb-10" :class="{'d-none': !visible}">
+    <a href="#"><img src="../../src/assets/img/totop.svg" class="rounded-circle shadow" alt="go top"></a>
+  </div>
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top d-flex flex-column py-0">
-    <div class="container pt-5 pb-4 position-relative">
-        <RouterLink to="/" class="h3 mb-0">橘子動物醫院 Orange Pet Clinic</RouterLink>
-        <div class="d-none d-lg-block"><div class="btn btn-secondary rounded-pill position-absolute bottom-0 end-0 mb-3 fs-5 px-4"><span class="material-symbols-rounded fs-5 me-2 mb-1 align-middle">call</span>02-28881588</div></div>
+    <div class="container pt-3 pb-1 position-relative">
+        <h1><RouterLink to="/" class="nav-logo h3 mb-0">橘子動物醫院 Orange Pet Clinic</RouterLink></h1>
+        <div class="d-none d-lg-block"><div class="btn btn-outline-secondary text-primary rounded-pill position-absolute bottom-0 end-0 mb-3 fs-5 px-4">02-28881588</div></div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -45,9 +48,6 @@
       <div class="d-none d-lg-block">
         <ul class="list-unstyled d-flex mb-7 ms-7 border-bottom">
           <li>
-            <RouterLink to="/" class="nav-link p-3">首頁</RouterLink>
-          </li>
-          <li>
             <RouterLink to="/about" class="nav-link p-3">關於我們</RouterLink>
           </li>
           <li>
@@ -72,7 +72,7 @@
       </div>
       <div class="row align-items-lg-center flex-column-reverse flex-lg-row">
         <div class="col-11 col-lg-5 mt-5 mt-lg-0 ms-auto">
-          <h3>LOGO</h3>
+          <RouterLink to="/" class="footer-logo mb-3">橘子動物醫院 Orange Pet Clinic</RouterLink >
           <ul class="list-unstyled">
             <li><a href="tel:0228881588" class="text-dark"><span class="material-symbols-rounded fs-5 me-2 align-text-top">call</span>02-28881588</a></li>
             <li><a href="mailto:orange_pet@orange.com.tw" class="text-dark"><span class="material-symbols-rounded fs-5 me-2 align-text-top">mail</span>orange_pet@orange.com.tw</a></li>
@@ -86,32 +86,33 @@
       </div>
     </div>
     <div class="text-center bg-primary">
-      <p class="mb-0 py-4 text-secondary">© Copyright 2023 橘子動物醫院<span class="d-none d-md-inline-block"> Orange Pet Clinic - <a href="#" class="link-notice">後台管理</a></span></p>
+      <p class="mb-0 py-4 text-secondary">© Copyright 2023 橘子動物醫院 <span class="d-none d-md-inline-block">Orange Pet Clinic - <a href="#" class="link-notice">後台管理</a></span></p>
     </div>
   </div>
 </template>
 
-<style scoped lang="scss">
-  .layout-set {
-    padding-top: 80px;
-    @media (min-width: 992px) {
-      padding-top: 131px;
+<script>
+import { RouterView } from 'vue-router';
+
+export default {
+  data() {
+    return {
+      visible: false,
     }
+  },
+  components: {
+    RouterView
+  },
+  methods: {
+    handleScroll (){
+      this.visible = window.scrollY >= 250 ? true : false
+    }
+  },
+  created () {
+    window.addEventListener('scroll', this.handleScroll);
   }
-  .navbar-nav {
-    font-size: 18px;
-  }
-  .nav-item .nav-link:hover {
-    background-color: #b5d5db;
-  }
-  .nav-item .router-link-active{
-    background-color: #b5d5db;
-  }
-  .footer {
-    background-image: linear-gradient(to top, rgba(227, 239, 243, 1), rgba(227, 239, 243, 0.1));
-  }
-  .footer .nav-link:hover {
-    color: #1ca0b8;
-  }
-  
+}
+</script>
+
+<style scoped lang="scss">  
 </style>

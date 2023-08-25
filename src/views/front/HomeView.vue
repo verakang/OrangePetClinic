@@ -4,21 +4,21 @@
       <div class="carousel-inner" style="height: 560px;">
         <div class="carousel-item active h-100">
           <img src="../../assets/img/index-banner.jpg" class="d-block w-100 h-100" alt="...">
-          <div class="carousel-caption d-none d-md-block">
+          <div class="carousel-caption px-4">
             <h5>橘子動物醫院</h5>
             <p>「陪伴不打烊，夥伴的健康永不止息」——橘子動物醫院，始終與您的寵物同在。</p>
           </div>
         </div>
         <div class="carousel-item h-100">
           <img src="../../assets/img/adopt.jpg" class="d-block w-100 h-100" alt="...">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>【公益活動】「愛心救援：受傷流浪犬找到新家！」</h5>
-            <p>感謝所有參與的志工和領養家庭一同讓他們重新獲得幸福。</p>
+          <div class="carousel-caption px-4">
+            <h5>【公益活動】</h5>
+            <p>「愛心救援：受傷流浪犬找到新家！」</p>
           </div>
         </div>
         <div class="carousel-item h-100">
           <img src="../../assets/img/sun_protection.jpg" class="d-block w-100 h-100" alt="...">
-          <div class="carousel-caption d-none d-md-block">
+          <div class="carousel-caption px-4">
             <h5>【貓狗健康小知識衛教】</h5>
             <p>夏日炙熱，別忘了給寵物防曬保護，呵護貓狗嬌嫩肌膚！</p>
           </div>
@@ -55,7 +55,7 @@
   </section>
   <section class="container pt-7 pb-10">
     <div class="row justify-content-center">
-      <h2 class="text-center mb-7 fst-italic">最新消息<span class="display-2 text-secondary">/News</span></h2>
+      <h2 class="text-center mb-7 fst-italic">最新消息<span class="display-2 text-secondary subtitle">/News</span></h2>
       <ul class="news-list col-10 col-lg-10 list-unstyled">
         <li class="px-5 py-6 position-relative border-bottom">
           <time datetime="2023-08-15" class="border-bottom border-2 border-primary text-primary">2023/08/15</time>
@@ -99,7 +99,7 @@
     <div class="container about-content py-10">
       <div class="row justify-content-center">
         <div class="col-10 col-lg-8">
-          <h2 class="text-center mb-7 fst-italic">醫院簡介<span class="display-2 text-notice">/Intro</span></h2>
+          <h2 class="text-center mb-7 fst-italic">醫院簡介<span class="display-2 text-notice subtitle">/Intro</span></h2>
           <p>歡迎來到橘子動物醫院！我們致力於為您的毛小孩提供最優質的醫療服務，以專業知識和貼心關懷照顧每一位家庭成員。我們的獸醫團隊充滿熱情，擁有豐富臨床經驗，提供從健康檢查、疫苗接種到手術等全方位的醫療解決方案。</p>
           <p>我們更著重於與您的互動，願意分享養寵物的珍貴經驗和建議，提供日常照顧、飲食指導和行為建議等，確保您和寵物的每一刻都充滿愛和溫暖</p>
           <p>在橘子動物醫院，預防是我們的重點，定期健康檢查有助於早期發現潛在問題，讓您的寵物遠離疾病煩惱。我們將根據寵物的特定需求，量身定制健康管理計劃，讓牠們擁有健康長壽的美好生活。</p>
@@ -110,7 +110,7 @@
     </div>
   </section>
   <section class="container-fluid py-10">
-    <h2 class="text-center mb-7 fst-italic">環境設備<span class="display-2 text-secondary">/Equipment</span></h2>
+    <h2 class="text-center mb-7 fst-italic">環境設備<span class="display-2 text-secondary subtitle">/Equipment</span></h2>
     <swiper
       :slidesPerView="1"
       :spaceBetween="10"
@@ -159,10 +159,10 @@
           <span class="fs-5">立即訂閱，掌握最新活動資訊！</span>
         </div>
         <div class="col-lg-6">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="請輸入 E-mail" aria-describedby="button-addon">
-            <button class="btn btn-outline-primary" type="button" id="button-addon">訂閱</button>
-          </div>
+          <form class="input-group">
+            <input type="email" class="form-control" placeholder="請輸入 E-mail" aria-describedby="button-addon" required>
+            <button class="btn btn-outline-primary" type="submit" id="button-addon">訂閱</button>
+          </form>
         </div>
       </div>
     </div>

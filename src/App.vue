@@ -6,8 +6,10 @@ export default {
     RouterView
   }
 }
+
 </script>
 
 <template>
   <RouterView :key="$route.fullPath" />
 </template>
+
