@@ -1,1 +1,0 @@
-import{_ as e,o,c,a as s}from"./index-96b46c42.js";const t={},n={class:"container"},_=s("h1",null,"衛教資訊",-1),a=[_];function r(i,d){return o(),c("div",n,a)}const f=e(t,[["render",r]]);export{f as default};
