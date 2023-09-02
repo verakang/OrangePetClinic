@@ -3,12 +3,17 @@ import { createPinia } from 'pinia'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import './assets/all.scss'
+import moment from 'moment'
 import 'bootstrap/dist/js/bootstrap.min.js';
 
 import App from './App.vue'
 import router from './router'
 
 const app = createApp(App)
+// 時間戳轉日期
+app.config.globalProperties.$moment = moment
+app.use(moment)
+
 app.use(VueAxios, axios)
 app.use(createPinia())
 app.use(router)

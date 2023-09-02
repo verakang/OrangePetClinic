@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed-bottom text-end me-7 mb-10" :class="{'d-none': !visible}">
+  <div class="fixed-bottom text-end me-7 mb-10 w-25 ms-auto" :class="{'d-none': !visible}">
     <a href="#"><img src="../../src/assets/img/totop.svg" class="rounded-circle shadow" alt="go top"></a>
   </div>
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top d-flex flex-column py-0">

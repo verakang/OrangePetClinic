@@ -17,7 +17,10 @@ const router = createRouter({
         },
         {
           path: 'news',
-          component: () => import('../views/front/NewsView.vue'),
+          component: () => import('../views/front/NewsList.vue'),
+        }, {
+          path: 'newsitem/:id',
+          component: () => import('../views/front/NewsItem.vue'),
         },
         {
           path: 'works',
@@ -33,7 +36,11 @@ const router = createRouter({
         },
         {
           path: 'blog',
-          component: () => import('../views/front/BlogView.vue'),
+          component: () => import('../views/front/BlogList.vue'),
+        },
+        {
+          path: 'blogitem/:id',
+          component: () => import('../views/front/BlogItem.vue'),
         },
         {
           path: 'contact',
