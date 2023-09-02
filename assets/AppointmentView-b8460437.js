@@ -1,1 +1,0 @@
-import{_ as e,o as t,c as o,a as c}from"./index-94b6d200.js";const s={},n={class:"container"},_=c("h1",null,"預約掛號",-1),a=[_];function r(i,d){return t(),o("div",n,a)}const f=e(s,[["render",r]]);export{f as default};
