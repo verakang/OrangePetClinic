@@ -1,4 +1,5 @@
 <template>
+  <VueLoading :active="isLoading" loader="dots" color="#1ca0b8"/>
   <section class="about-banner px-4 py-7 d-flex align-items-center">
     <div class="container">
       <div class="row">
@@ -71,6 +72,22 @@
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      isLoading: false,
+    }
+  },
+  mounted() {
+    this.isLoading = true
+    setTimeout(()=>{
+      this.isLoading = false
+    },500)
+  }
+}
+</script>
 
 <style scoped lang="scss">
 .about-banner {

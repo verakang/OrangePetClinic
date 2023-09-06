@@ -1,4 +1,5 @@
 <template>
+  <VueLoading :active="isLoading" loader="dots" color="#1ca0b8"/>
   <section class="container py-10">
     <h2 class="text-center mb-7 fst-italic">服務項目<span class="display-2 text-secondary subtitle">/Works</span></h2>
     <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xxl-5 gy-5">
@@ -154,14 +155,20 @@
 
   export default {
     components: {
-      Swiper,
-      SwiperSlide,
+      Swiper, SwiperSlide,
     },
-    setup() {
+    data() {
       return {
+        isLoading: false,
         modules: [Pagination, Autoplay],
       };
     },
+    mounted() {
+      this.isLoading = true
+      setTimeout(()=>{
+        this.isLoading = false
+      },300)
+    }
   };
 </script>
 

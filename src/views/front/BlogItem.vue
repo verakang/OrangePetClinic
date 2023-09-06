@@ -1,4 +1,5 @@
 <template>
+  <VueLoading :active="isLoading" loader="dots" color="#1ca0b8"/>
   <section class="container py-10">
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="mb-7">
       <ol class="breadcrumb">
@@ -37,6 +38,7 @@ const { VITE_URL, VITE_BLOG_PATH } = import.meta.env
 export default {
   data() {
     return {
+      isLoading: false,
       item: {}
     }
   },
@@ -47,10 +49,12 @@ export default {
       .get(`${VITE_URL}/v2/api/${VITE_BLOG_PATH}/article/${id}`)
       .then((res)=>{
         this.item = res.data.article
+        this.isLoading = false
       })
     }
   },
   mounted() {
+    this.isLoading = true
     this.getItem()
   }
 }

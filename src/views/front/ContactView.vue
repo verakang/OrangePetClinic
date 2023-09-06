@@ -1,4 +1,5 @@
 <template>
+  <VueLoading :active="isLoading" loader="dots" color="#1ca0b8"/>
   <section>
     <div class="contact_banner position-relative">
       <img src="../../assets/img/contact-banner.jpg" class="w-100 h-100" alt="contact banner">
@@ -17,42 +18,82 @@
           </p>
         </div>
         <div class="mx-auto mt-8">
-          <form class="d-flex flex-column px-4"> 
+          <v-form v-slot="{ errors }" @submit="onSubmit" class="d-flex flex-column px-4" ref="form"> 
             <div class="row mb-3">
-              <label for="inputName" class="col-sm-2 offset-sm-1 col-form-label text-sm-end">姓名<span class="text-notice ms-1">*</span></label>
+              <label for="inputName" class="col-sm-2 offset-sm-1 form-label col-form-label text-sm-end">姓名<span class="text-notice ms-1">*</span></label>
               <div class="col-sm-7">
-                <input type="text" class="form-control" id="inputName" required>
+                <v-field name="姓名" type="text" class="form-control" id="inputName"
+                :class="{ 'is-invalid': errors['姓名'] }" placeholder="請輸入姓名" rules="required"></v-field>
+                <error-message name="姓名" class="invalid-feedback"></error-message>
               </div>
             </div>
             <div class="row mb-3">
-              <label for="inputPhone" class="col-sm-2 offset-sm-1 col-form-label text-sm-end">電話<span class="text-notice ms-1">*</span></label>
+              <label for="inputPhone" class="col-sm-2 offset-sm-1 form-label col-form-label text-sm-end">電話<span class="text-notice ms-1">*</span></label>
               <div class="col-sm-7">
-                <input type="tel" class="form-control" id="inputPhone" required>
+                <v-field name="電話" type="tel" class="form-control" id="inputPhone"
+                :class="{ 'is-invalid': errors['電話'] }" placeholder="請輸入電話" rules="numeric|min:8|required"></v-field>
+                <error-message name="電話" class="invalid-feedback"></error-message>
               </div>
             </div>
             <div class="row mb-3">
-              <label for="inputEmail" class="col-sm-2 offset-sm-1 col-form-label text-sm-end">信箱<span class="text-notice ms-1">*</span></label>
+              <label for="inputEmail" class="col-sm-2 offset-sm-1 form-label col-form-label text-sm-end">信箱<span class="text-notice ms-1">*</span></label>
               <div class="col-sm-7">
-                <input type="email" class="form-control" id="inputEmail" required>
+                <v-field name="信箱" type="email" class="form-control" id="inputEmail"
+                :class="{ 'is-invalid': errors['信箱'] }" placeholder="請輸入信箱" rules="email|required"></v-field>
+                <error-message name="信箱" class="invalid-feedback"></error-message>
               </div>
             </div>
             <div class="row mb-6">
-              <label for="inputTextarea" class="col-sm-2 offset-sm-1 col-form-label text-sm-end">留言<span class="text-notice ms-1">*</span></label>
+              <label for="inputTextarea" class="col-sm-2 offset-sm-1 form-label col-form-label text-sm-end">留言<span class="text-notice ms-1">*</span></label>
               <div class="col-sm-7">
-                <textarea class="form-control" id="inputTextarea" required></textarea>
+                <v-field as="textarea" name="留言" class="form-control" id="inputTextarea"
+                :class="{ 'is-invalid': errors['留言'] }" placeholder="請留下您的寶貴意見" rules="required"></v-field>
+                <error-message name="留言" class="invalid-feedback"></error-message>
               </div>
             </div>
             <div class="offset-6 offset-md-7 offset-lg-8">
-              <button type="button" class="btn btn-outline-dark me-4">取消</button>
+              <button type="button" class="btn btn-outline-dark me-4" @click="formReset">取消</button>
               <button type="submit" class="btn btn-primary text-secondary">送出</button>
             </div>
-          </form>
+          </v-form>
         </div>
       </div>
     </div>
-
   </section>
 </template>
+
+<script>
+import Swal from 'sweetalert2'
+
+export default {
+  data() {
+    return {
+      isLoading: false,
+    }
+  },
+  methods: {
+    onSubmit() {
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: `謝謝您的回饋，我們將盡快回覆您的寶貴意見：）`,
+        showConfirmButton: true,
+        toast: true
+      })
+      this.$refs.form.resetForm();
+    },
+    formReset() {
+      this.$refs.form.resetForm();
+    }
+  },
+  mounted() {
+    this.isLoading = true
+    setTimeout(()=>{
+      this.isLoading = false
+    },500)
+  }
+}
+</script>
 
 <style>
 .contact_banner {

@@ -1,11 +1,11 @@
 <template>
   <div class="fixed-bottom text-end me-7 mb-10 w-25 ms-auto" :class="{'d-none': !visible}">
-    <a href="#"><img src="../../src/assets/img/totop.svg" class="rounded-circle shadow" alt="go top"></a>
+    <div @click="goTop" class="gotop"><img src="../../src/assets/img/totop.svg" class="rounded-circle shadow" alt="go top"></div>
   </div>
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top d-flex flex-column py-0">
     <div class="container pt-3 pb-1 position-relative">
         <h1><RouterLink to="/" class="nav-logo h3 mb-0">橘子動物醫院 Orange Pet Clinic</RouterLink></h1>
-        <div class="d-none d-lg-block"><div class="btn btn-outline-secondary text-primary rounded-pill position-absolute bottom-0 end-0 mb-3 fs-5 px-4">02-28881588</div></div>
+        <div class="d-none d-lg-block"><div class="btn btn-outline-secondary text-primary rounded-pill position-absolute bottom-0 end-0 mb-3 fs-5 px-4 btn-call">02-28881588</div></div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -14,25 +14,25 @@
       <div class="container">
         <div class="collapse navbar-collapse text-center" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item">
+          <li class="nav-item layout-nav">
             <RouterLink to="/about" class="nav-link p-4">關於我們</RouterLink>
           </li>
-          <li class="nav-item">
+          <li class="nav-item layout-nav">
             <RouterLink to="/news" class="nav-link p-4">最新消息</RouterLink>
           </li>
-          <li class="nav-item">
+          <li class="nav-item layout-nav">
             <RouterLink to="/works" class="nav-link p-4">服務項目</RouterLink>
           </li>
-          <li class="nav-item">
+          <li class="nav-item layout-nav">
             <RouterLink to="/schedule" class="nav-link p-4">當月班表</RouterLink>
           </li>
-          <li class="nav-item">
+          <li class="nav-item layout-nav">
             <RouterLink to="/appointment" class="nav-link p-4">預約掛號</RouterLink>
           </li>
-          <li class="nav-item">
+          <li class="nav-item layout-nav">
             <RouterLink to="/blog" class="nav-link p-4">衛教資訊</RouterLink>
           </li>
-          <li class="nav-item">
+          <li class="nav-item layout-nav">
             <RouterLink to="/contact" class="nav-link p-4">聯絡我們</RouterLink>
           </li>
         </ul>
@@ -74,10 +74,10 @@
         <div class="col-11 col-lg-5 mt-5 mt-lg-0 ms-auto">
           <RouterLink to="/" class="footer-logo mb-3">橘子動物醫院 Orange Pet Clinic</RouterLink >
           <ul class="list-unstyled">
-            <li><a href="tel:0228881588" class="text-dark"><span class="material-symbols-rounded fs-5 me-2 align-text-top">call</span>02-28881588</a></li>
-            <li><a href="mailto:orange_pet@orange.com.tw" class="text-dark"><span class="material-symbols-rounded fs-5 me-2 align-text-top">mail</span>orange_pet@orange.com.tw</a></li>
-            <li><a href="#" class="text-dark"><span class="material-symbols-rounded fs-5 me-2 align-text-top">location_on</span>台北市中山區連雲街100號</a></li>
-            <li><span class="material-symbols-rounded fs-5 me-2 align-text-top">schedule</span>營業時間：<br>&emsp;&ensp;上午 10:00-12:00<br>&emsp;&ensp;下午 14:00-17:30<br>&emsp;&ensp;晚間 18:00-20:30</li>
+            <li><a href="tel:0228881588" class="text-dark"><span class="material-symbols-rounded fs-5 me-2 subtitle">call</span>02-28881588</a></li>
+            <li><a href="mailto:orange_pet@orange.com.tw" class="text-dark"><span class="material-symbols-rounded fs-5 me-2 subtitle">mail</span>orange_pet@orange.com.tw</a></li>
+            <li><a href="#" class="text-dark"><span class="material-symbols-rounded fs-5 me-2 subtitle">location_on</span>台北市中山區連雲街100號</a></li>
+            <li><span class="material-symbols-rounded fs-5 me-2 subtitle">schedule</span>營業時間：<br>&emsp;&ensp;上午 10:00-12:00<br>&emsp;&ensp;下午 14:00-17:30<br>&emsp;&ensp;晚間 18:00-20:30</li>
           </ul>
         </div>
         <div class="col-lg-6">
@@ -106,13 +106,17 @@ export default {
   methods: {
     handleScroll (){
       this.visible = window.scrollY >= 250 ? true : false
-    }
+    },
+    goTop() {
+      window.scrollTo({
+        top: 0,
+        right: 0,
+        behavior: 'smooth'
+      })
+    },
   },
   created () {
     window.addEventListener('scroll', this.handleScroll);
   }
 }
 </script>
-
-<style scoped lang="scss">  
-</style>

@@ -5,6 +5,23 @@
     padding-top: 134px;
   }
 }
+.gotop {
+  cursor: pointer;
+}
+.btn-call {
+  animation: wave 2s infinite;
+}
+@keyframes wave  {
+  0% {
+    transform: translateX(0px)
+  }
+  50% {
+    transform: translateX(20px)
+  }
+  100% {
+    transform: translateX(0px)
+  }
+}
 .navbar-nav {
   font-size: 18px;
 }
@@ -19,7 +36,7 @@
   overflow: hidden;
   white-space: nowrap;
 }
-.nav-item .nav-link {
+.layout-nav .nav-link {
   position: relative;
   &::after {
     content: '';
@@ -38,7 +55,7 @@
     }
   }
 }
-.nav-item .router-link-active{
+.layout-nav .router-link-active{
   color: #343a40;
   &::after {
     content: '';

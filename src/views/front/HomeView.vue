@@ -1,23 +1,24 @@
 <template>
+  <VueLoading :active="isLoading" loader="dots" color="#1ca0b8"/>
   <section class="banner container-fluid px-0 bg-secondary">
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner" style="height: 560px;">
         <div class="carousel-item active h-100">
-          <img src="../../assets/img/index-banner.jpg" class="d-block w-100 h-100" alt="...">
+          <img src="../../assets/img/index-banner.jpg" class="d-block w-100 h-100" alt="banner photo">
           <div class="carousel-caption px-4">
             <h5>橘子動物醫院</h5>
             <p>「陪伴不打烊，夥伴的健康永不止息」——橘子動物醫院，始終與您的寵物同在。</p>
           </div>
         </div>
         <div class="carousel-item h-100">
-          <img src="../../assets/img/adopt.jpg" class="d-block w-100 h-100" alt="...">
+          <RouterLink to="/newsitem/-NdL41vSyrIvVu_VvAR2"><img src="../../assets/img/adopt.jpg" class="d-block w-100 h-100" alt="banner photo"></RouterLink>
           <div class="carousel-caption px-4">
             <h5>【公益活動】</h5>
             <p>「愛心救援：受傷流浪犬找到新家！」</p>
           </div>
         </div>
         <div class="carousel-item h-100">
-          <img src="../../assets/img/sun_protection.jpg" class="d-block w-100 h-100" alt="...">
+          <RouterLink to="/blogitem/-NdMbfRQCEYJ603fHsmK"><img src="../../assets/img/sun_protection.jpg" class="d-block w-100 h-100" alt="banner photo"></RouterLink>
           <div class="carousel-caption px-4">
             <h5>【貓狗健康小知識衛教】</h5>
             <p>夏日炙熱，別忘了給寵物防曬保護，呵護貓狗嬌嫩肌膚！</p>
@@ -57,40 +58,14 @@
     <div class="row justify-content-center">
       <h2 class="text-center mb-7 fst-italic">最新消息<span class="display-2 text-secondary subtitle">/News</span></h2>
       <ul class="news-list col-10 col-lg-10 list-unstyled">
-        <li class="px-5 py-6 position-relative border-bottom">
-          <time datetime="2023-08-15" class="border-bottom border-2 border-primary text-primary">2023/08/15</time>
-          <div class="d-flex flex-column flex-xl-row justify-content-between ms-4 mt-5">
-            <p class="stretched-link link-dark d-block mb-0">「暑期防疫守護，寵物免費健康檢查！」立即預約，全方位呵護您的毛小孩。</p>
-            <a href="#" class="stretched-link link-notice align-self-end mt-4 mt-xl-0">read more ></a>
-          </div>
-        </li>
-        <li class="px-5 py-6 position-relative border-bottom">
-          <time datetime="2023-08-01" class="border-bottom border-2 border-primary text-primary">2023/08/01</time>
-          <div class="d-flex flex-column flex-xl-row justify-content-between ms-4 mt-5">
-            <p class="stretched-link link-dark d-block mb-0">「寵物牙科健康月，全線牙垢清潔產品八折起！」獻給毛孩最貼心的口腔護理，預約專屬門診方案。</p>
-            <a href="#" class="stretched-link link-notice align-self-end mt-4 mt-xl-0">read more ></a>
-          </div>
-        </li>
-        <li class="px-5 py-6 position-relative border-bottom">
-          <time datetime="2023-06-20" class="border-bottom border-2 border-primary text-primary">2023/06/20</time>
-          <div class="d-flex flex-column flex-xl-row justify-content-between ms-4 mt-5">
-            <p class="stretched-link link-dark d-block mb-0">「寵物肥胖防治講座，讓毛孩健康活力！」專業獸醫團隊分享科學飲食與運動計畫，一同擁抱活潑生活。</p>
-            <a href="#" class="stretched-link link-notice align-self-end mt-4 mt-xl-0">read more ></a>
-          </div>
-        </li>
-        <li class="px-5 py-6 position-relative border-bottom">
-          <time datetime="2023-04-30" class="border-bottom border-2 border-primary text-primary">2023/04/30</time>
-          <div class="d-flex flex-column flex-xl-row justify-content-between ms-4 mt-5">
-            <p class="stretched-link link-dark d-block mb-0">「愛心救援：受傷流浪犬找到新家！」感謝所有參與的志工和領養家庭，一同讓牠們重新獲得幸福。</p>
-            <a href="#" class="stretched-link link-notice align-self-end mt-4 mt-xl-0">read more ></a>
-          </div>
-        </li>
-        <li class="px-5 py-6 position-relative">
-          <time datetime="2023-02-15" class="border-bottom border-2 border-primary text-primary">2023/02/15</time>
-          <div class="d-flex flex-column flex-xl-row justify-content-between ms-4 mt-5">
-            <p class="stretched-link link-dark d-block mb-0">「特價藥品大放送！疫苗、膳食補充品，優惠不可錯過！」數量有限，請儘早洽詢領取。</p>
-            <a href="#" class="stretched-link link-notice align-self-end mt-4 mt-xl-0">read more ></a>
-          </div>
+        <li v-for="item in news" :key="item.id" class="px-5 py-6 position-relative border-bottom">
+          <RouterLink :to="`/newsitem/${item.id}`">
+            <time datetime="2023-08-15" class="border-bottom border-2 border-primary text-primary">{{ $moment(new Date(item.create_at * 1000)).format('YYYY-MM-DD') }}</time>
+            <div class="d-flex flex-column flex-xl-row justify-content-between ms-4 mt-5">
+              <p class="stretched-link link-dark d-block mb-0">{{ item.title }}</p>
+              <span class="link-notice align-self-end mt-4 mt-xl-0">read more ></span>
+            </div>
+          </RouterLink>
         </li>
       </ul>
     </div>
@@ -158,11 +133,22 @@
           <p class="mb-0 fs-3 text-primary fst-italic">Psubscribe now！</p>
           <span class="fs-5">立即訂閱，掌握最新活動資訊！</span>
         </div>
+
+        <!-- <div class="mb-3">
+          <label for="email" class="form-label">Email<span class="text-danger"> *</span></label>
+          <v-field id="email" name="email" type="email" class="form-control"
+            :class="{ 'is-invalid': errors['email'] }" placeholder="請輸入 Email" rules="email|required"
+            v-model="form.user.email"></v-field>
+          <error-message name="email" class="invalid-feedback"></error-message>
+        </div> -->
+
         <div class="col-lg-6">
-          <form class="input-group">
-            <input type="email" class="form-control" placeholder="請輸入 E-mail" aria-describedby="button-addon" required>
+          <v-form  v-slot="{ errors }" @submit="onSubmit" class="input-group" ref='form'>
+            <v-field id="email" name="email" type="email" class="form-control" placeholder="請輸入 E-mail" rules="email|required"></v-field>
+            <!-- <error-message name="email" class="invalid-feedback"></error-message> -->
             <button class="btn btn-outline-primary" type="submit" id="button-addon">訂閱</button>
-          </form>
+            <p class="w-100 mt-2 ms-1 text-danger">{{ errors.email }}</p>
+          </v-form>
         </div>
       </div>
     </div>
@@ -170,6 +156,9 @@
 </template>
 
 <script>
+  import { RouterLink } from 'vue-router'
+  import Swal from 'sweetalert2'
+  const { VITE_URL, VITE_PATH } = import.meta.env
   // Import Swiper Vue.js components
   import { Swiper, SwiperSlide } from 'swiper/vue';
 
@@ -182,14 +171,46 @@
 
   export default {
     components: {
-      Swiper,
-      SwiperSlide,
+      Swiper, SwiperSlide, RouterLink
     },
-    setup() {
+    data() {
       return {
+        isLoading: false,
         modules: [Pagination, Autoplay],
+        articles:[],
+        news:[]
       };
     },
+    methods: {
+      getArticles() {
+        this.$http
+        .get(`${VITE_URL}/v2/api/${VITE_PATH}/articles`)
+        .then((res)=>{
+          this.articles = res.data.articles
+          this.getNews()
+          })
+      },
+      getNews() {
+        this.news = this.articles.splice(0, 5)
+        this.isLoading = false
+      },
+      onSubmit() {
+        Swal.fire({
+          position: 'center-center',
+          icon: 'success',
+          title: `訂閱成功：）`,
+          showConfirmButton: false,
+          timer: 1000,
+          timerProgressBar: true,
+          toast: true
+        })
+        this.$refs.form.resetForm();
+      }
+    },
+    mounted() {
+      this.isLoading = true
+      this.getArticles()
+    }
   };
 </script>
 
@@ -219,7 +240,7 @@
   &:hover{
     cursor: pointer;
     background-color: #f9f7f7;
-    a {
+    span {
       transform: translateX(10px);
     }
   }

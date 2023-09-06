@@ -1,12 +1,11 @@
 <template>
+  <VueLoading :active="isLoading" loader="dots" color="#1ca0b8"/>
   <section class="container py-10">
     <FullCalendar :options='calendarOptions' />
   </section>
-  {{ id }}
 </template>
 
-<script type="modules">
-// const { CALENDAR_API_KEY, CALENDAR_ID } = import.meta.env
+<script>
 import FullCalendar from '@fullcalendar/vue3';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import twLocale from '@fullcalendar/core/locales/zh-tw';
@@ -16,8 +15,9 @@ export default {
   components: {
     FullCalendar
   },
-  data: function() {
+  data() {
     return {
+      isLoading: false,
       calendarOptions: {
         plugins: [dayGridPlugin, googleCalendarPlugin],
         themeSystem: 'bootstrap',
@@ -51,6 +51,12 @@ export default {
       }
     }
   },
+  mounted() {
+    this.isLoading = true
+    setTimeout(()=>{
+      this.isLoading = false
+    },500)
+  }
 }
 </script>
 
