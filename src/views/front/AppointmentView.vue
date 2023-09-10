@@ -37,13 +37,13 @@
               </div>
               <div class="col-md-7">  
                 <div class="book-form py-7 rounded-5 bg-light">
-                  <h3 class="text-center border-bottom pb-5" id="selectedDate">{{ today }}</h3>
+                  <h3 class="text-center border-bottom pb-5" id="selectedDate" ref="pickDay">{{ today }}</h3>
                   <v-form v-slot="{ errors }" @submit="onSubmit" class="d-flex flex-column px-4 mt-7" ref='form'>
                     <div class="d-flex justify-content-center mb-3">
                       <label for="inputTime" class="form-label col-form-label text-sm-end me-4">預約時段<span class="text-notice ms-1">*</span></label>
                       <div class="w-75">
                         <v-field name="預約時段" as="select" id="inputTime" class="form-select" aria-label="Default select example"
-                        :class="{ 'is-invalid': errors['預約時段'] }" rules="required">
+                        :class="{ 'is-invalid': errors['預約時段'] }" rules="required" v-model="time">
                           <option selected disabled value="">請選擇預約時段</option>
                           <option value="10:00-11:00">10:00-11:00</option>
                           <option value="11:00-12:00">11:00-12:00</option>
@@ -59,7 +59,7 @@
                     <div class="d-flex justify-content-center mb-3">
                       <label for="petName" class="form-label col-form-label text-sm-end me-4">寵物姓名<span class="text-notice ms-1">*</span></label>
                       <div class="w-75">
-                        <v-field name="寵物姓名" type="text" class="form-control" id="petName"
+                        <v-field name="寵物姓名" type="text" class="form-control" id="petName" v-model="petName"
                         :class="{ 'is-invalid': errors['寵物姓名'] }" placeholder="請輸入寵物姓名" rules="required" prop="petName"></v-field>
                         <error-message name="寵物姓名" class="invalid-feedback"></error-message>
                       </div>
@@ -67,7 +67,7 @@
                     <div class="d-flex justify-content-center mb-3">
                       <label for="inputName" class="form-label col-form-label text-sm-end me-4">飼主姓名<span class="text-notice ms-1">*</span></label>
                       <div class="w-75">
-                        <v-field name="飼主姓名" type="text" class="form-control" id="inputName"
+                        <v-field name="飼主姓名" type="text" class="form-control" id="inputName" v-model="ownerName"
                         :class="{ 'is-invalid': errors['飼主姓名'] }" placeholder="請輸入飼主姓名" rules="required"></v-field>
                         <error-message name="飼主姓名" class="invalid-feedback"></error-message>
                       </div>
@@ -75,8 +75,8 @@
                     <div class="d-flex justify-content-center mb-3">
                       <label for="inputPhone" class="form-label col-form-label text-sm-end me-4">聯絡電話<span class="text-notice ms-1">*</span></label>
                       <div class="w-75">
-                        <v-field name="聯絡電話" type="tel" class="form-control" id="inputPhone"
-                        :class="{ 'is-invalid': errors['聯絡電話'] }" placeholder="請輸入聯絡電話" rules="numeric|min:8|required"></v-field>
+                        <v-field name="聯絡電話" type="tel" class="form-control" id="inputPhone" v-model="phoneNumber"
+                        :class="{ 'is-invalid': errors['聯絡電話'] }" placeholder="請輸入聯絡電話" :rules="isPhone"></v-field>
                         <error-message name="聯絡電話" class="invalid-feedback"></error-message>
                         <p class="mt-1 text-primary" style="font-size: 14px;">聯絡電話為查詢依據，請確認後再送出。</p>
                       </div>
@@ -84,7 +84,7 @@
                     <div class="d-flex justify-content-center mb-6">
                       <label for="inputTextarea" class="form-label col-form-label text-sm-end me-4">狀況說明<span class="text-notice ms-1">*</span></label>
                       <div class="w-75">
-                        <v-field name="狀況說明" as="textarea" type="textarea" class="form-control" id="inputTextarea"
+                        <v-field name="狀況說明" as="textarea" type="textarea" class="form-control" id="inputTextarea" v-model="message"
                         :class="{ 'is-invalid': errors['狀況說明'] }" placeholder="請簡述就診原因" rules="required"></v-field>
                         <error-message name="狀況說明" class="invalid-feedback"></error-message>
                       </div>
@@ -105,7 +105,7 @@
                 <label for="inputPhone" class="form-label col-form-label text-sm-end me-4">聯絡電話<span class="text-notice ms-1">*</span></label>
                 <div class="w-75 input-group">
                   <v-field name="聯絡電話" type="tel" class="form-control" id="inputPhone" v-model="number"
-                  :class="{ 'is-invalid': errors['聯絡電話'] }" placeholder="請輸入聯絡電話" rules="numeric|min:8|required"></v-field>
+                  :class="{ 'is-invalid': errors['聯絡電話'] }" placeholder="請輸入聯絡電話" :rules="isPhone"></v-field>
                   <button type="submit" class="btn btn-primary text-secondary ms-2">查詢</button>
                   <error-message name="聯絡電話" class="invalid-feedback"></error-message>
                 </div>
@@ -174,26 +174,41 @@ export default {
       selectedDate: null,
       today: null,
       number: '',
+      phoneNumber: '',
+      message: '',
+      time: '',
+      petName: '',
+      ownerName: '',
+      message: '',
+      booktemp: {
+        phoneNumber: '',
+        date: '',
+        time: '',
+        petName: '',
+        ownerName: '',
+        message: '',
+        selected: true,
+        state: true
+      },
       bookList: [{
         phoneNumber: '0911234567',
-        bookData:[{
-          date: '2023/9/20',
-          time: '10:00-11:00',
-          petName: '橘子',
-          ownerName: 'Vera',
-          message: '食慾不振、拉肚子',
-          selected: true,
-          state: true
+        date: '2023/9/20',
+        time: '10:00-11:00',
+        petName: '橘子',
+        ownerName: 'Vera',
+        message: '食慾不振、拉肚子',
+        selected: true,
+        state: true
         },{
-          date: '2023/9/27',
-          time: '19:00-20:00',
-          petName: '橘子',
-          ownerName: 'Vera',
-          message: '回診',
-          selected: false,
-          state: true
-        }]
-      }],
+        phoneNumber: '0911234567',
+        date: '2023/9/27',
+        time: '19:00-20:00',
+        petName: '橘子',
+        ownerName: 'Vera',
+        message: '回診',
+        selected: false,
+        state: true
+        }],
       tempList:[],
       showBook:{}
     }
@@ -223,9 +238,20 @@ export default {
       picker.setDate(todayDate);
       cal.appendChild(picker.el);
     },
+    isPhone(value) {
+      const phoneNumber = /^(09)[0-9]{8}$/
+      return phoneNumber.test(value) ? true : '請輸入手機號碼共十碼'
+    },
     onSubmit() {
+      this.booktemp.phoneNumber = this.phoneNumber
+      this.booktemp.time = this.time
+      this.booktemp.date = this.$refs.pickDay.innerHTML
+      this.booktemp.petName = this.petName
+      this.booktemp.ownerName = this.ownerName
+      this.booktemp.message = this.message
+      this.bookList.push(this.booktemp)
       Swal.fire({
-        position: 'center-center',
+        position: 'center',
         icon: 'success',
         title: `預約完成：）`,
         showConfirmButton: false,
@@ -239,19 +265,27 @@ export default {
       this.$refs.form.resetForm();
     },
     onCheck() {
-      if(this.number != '0911234567'){
+      this.tempList = []
+      this.bookList.forEach(item => {
+        if(item.phoneNumber == this.number){
+          this.tempList.push(item)
+        }
+      })
+      this.tempList.sort(function(a, b) {
+        return a.date.split('/')[2] - b.date.split('/')[2]
+      })
+      if(this.tempList.length != 0){
+        this.getBook(this.tempList[0].date)
+      }else{
+        this.tempList = []
+        this.$refs.checkForm.resetForm();
         Swal.fire({
         position: 'center',
         icon: 'error',
         title: `查無預約資料，請再次確認。`,
         showConfirmButton: true,
         toast: true
-      })
-      this.$refs.checkForm.resetForm();
-      }else{
-        this.tempList = this.bookList[0].bookData
-        this.getBook(this.tempList[0].date)
-      }
+      })}
     },
     getBook(date) {
       this.tempList.forEach((item, key) =>{
@@ -263,11 +297,9 @@ export default {
       })
     },
     deleteBook() {
-      this.showBook.state = false
       Swal.fire({
         position: 'center',
-        title: 'Are you sure?',
-        text: "確認取消約診？",
+        title: '確認取消約診？',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#1ca0b8',
@@ -277,6 +309,7 @@ export default {
         toast: true
       }).then((result) => {
         if (result.isConfirmed) {
+          this.showBook.state = false
           Swal.fire({
             position: 'center',
             title:'取消完成',
