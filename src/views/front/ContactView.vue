@@ -31,7 +31,7 @@
               <label for="inputPhone" class="col-sm-2 offset-sm-1 form-label col-form-label text-sm-end">電話<span class="text-notice ms-1">*</span></label>
               <div class="col-sm-7">
                 <v-field name="電話" type="tel" class="form-control" id="inputPhone"
-                :class="{ 'is-invalid': errors['電話'] }" placeholder="請輸入電話" rules="numeric|min:8|required"></v-field>
+                :class="{ 'is-invalid': errors['電話'] }" placeholder="請輸入電話" :rules="isPhone"></v-field>
                 <error-message name="電話" class="invalid-feedback"></error-message>
               </div>
             </div>
@@ -72,6 +72,10 @@ export default {
     }
   },
   methods: {
+    isPhone(value) {
+      const phoneNumber = /^(09)[0-9]{8}$/
+      return phoneNumber.test(value) ? true : '請輸入手機號碼共十碼'
+    },
     onSubmit() {
       Swal.fire({
         position: 'center',
