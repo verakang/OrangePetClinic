@@ -1,6 +1,7 @@
 // nav footer 設定
 .layout-set {
   padding-top: 75px;
+  min-height: calc(100vh - 563px);
   @media (min-width: 992px) {
     padding-top: 134px;
   }

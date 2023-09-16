@@ -45,14 +45,20 @@ const router = createRouter({
         {
           path: 'contact',
           component: () => import('../views/front/ContactView.vue'),
+        },{
+          path: 'login',
+          component: () => import('../views/front/LoginView.vue')
+        },
+        {
+          path: '/:pathMatch(.*)*',
+          component: () => import('../views/NotFound.vue')
+        },
+        {
+          path: '/admin',
+          component: () => import('../views/admin/AdminView.vue')
         }
       ]
     },
-    // {
-    //   path: '/admin',
-    //   name: '',
-    //   component: () => import('../views/AboutView.vue')
-    // }
   ]
 })
 

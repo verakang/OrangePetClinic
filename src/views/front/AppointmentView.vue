@@ -7,17 +7,17 @@
     <div class="appointment-content">
       <ul class="nav nav-tabs container px-3" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
-          <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">預約須知</button>
+          <button class="nav-link active" id="notice-tab" data-bs-toggle="tab" data-bs-target="#notice" type="button" role="tab" aria-controls="notice" aria-selected="true">預約須知</button>
         </li>
         <li class="nav-item" role="presentation">
-          <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">線上掛號</button>
+          <button class="nav-link" id="book-tab" data-bs-toggle="tab" data-bs-target="#book" type="button" role="tab" aria-controls="book" aria-selected="false">線上掛號</button>
         </li>
         <li class="nav-item" role="presentation">
-          <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">掛號查詢</button>
+          <button class="nav-link" id="check-tab" data-bs-toggle="tab" data-bs-target="#check" type="button" role="tab" aria-controls="check" aria-selected="false">掛號查詢</button>
         </li>
       </ul>
       <div class="tab-content bg-white" id="myTabContent">
-        <div class="tab-pane fade container show active py-10 col-10 col-md-8 col-xxl-6" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <div class="tab-pane fade container show active py-10 col-10 col-md-8 col-xxl-6" id="notice" role="tabpanel" aria-labelledby="notice-tab">
           <p>親愛的寵物飼主您好，</p>
           <p>感謝您選擇橘子動物醫院為您的愛寵提供醫療服務。以下是本院的預約須知，請您仔細閱讀：</p>
           <p><span class="material-symbols-rounded me-2 text-notice subtitle">done_all</span>預約方式：為了提供更優質的醫療服務，本院實行預約制度。您可以透過網路預約、電話預約或親自前來櫃台預約。預約不僅可以避免長時間的等待，還能確保寵物在最適合的時間得到專業的診療服務。</p>
@@ -27,12 +27,12 @@
           <p><span class="material-symbols-rounded me-2 text-notice subtitle">done_all</span>醫院規定：為了維護醫院的秩序與寵物健康，請遵守醫院相關規定，勿攜帶其他動物進入診療區域。狗狗請務必穿戴項圈和牽繩，並保持良好的性情，避免在醫院內與其他動物或飼主發生摩擦。</p>
           <p>在橘子動物醫院，我們致力於為每一位寵物提供專業、關愛的醫療服務。如果您對預約須知有任何疑問，或需要協助預約，請隨時與我們聯繫。期待與您攜手守護寵物健康，讓您的毛小孩擁有幸福快樂的生活！</p>
         </div>
-        <div class="tab-pane fade container py-10" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <div class="tab-pane fade container py-10" id="book" role="tabpanel" aria-labelledby="book-tab">
             <div class="row gy-6">
               <div class="col-md-5">
                 <div>
                   <div id="datepicker"></div>
-                  <p class="m-4 text-primary">每個月 20 日公布下個月班表，並開放預約。</p>
+                  <p class="m-4 text-primary">每個月 25 日公布下個月班表，於次月 1 日開放預約。</p>
                 </div>
               </div>
               <div class="col-md-7">  
@@ -98,7 +98,7 @@
               </div>
             </div>
         </div>
-        <div class="tab-pane fade container py-10" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+        <div class="tab-pane fade container py-10" id="check" role="tabpanel" aria-labelledby="check-tab">
           <div class="col-md-8 offset-md-2">  
             <div class="book-form py-7 rounded-5 bg-light">
               <v-form  v-slot="{ errors }" @submit="onCheck()" class="border-bottom pb-5 d-flex justify-content-center px-5 px-lg-10" ref='checkForm'>
@@ -111,8 +111,8 @@
                 </div>
               </v-form>
               <h3 class="text-center my-7">預約資訊</h3>
-              <ul class="list-unstyled d-flex col-10 offset-1 offset-lg-2">
-                <li v-for="item in tempList" :key="`${item.date}+${item.time}`"><button type="button" class="btn btn-sm rounded-0 btn-outline-primary me-2" :class="{'active': item.selected,'text-secondary': item.selected}" @click="getBook(item.date)">{{ item.date }}</button></li>
+              <ul class="list-unstyled d-flex flex-wrap col-8 offset-1 offset-lg-2">
+                <li v-for="item in tempList" :key="`${item.date}+${item.time}`" class="me-2 mt-2"><button type="button" class="btn btn-sm rounded-0 btn-outline-primary" :class="{'active': item.selected,'text-secondary': item.selected}" @click="getBook(`${item.date}+${item.time}`)" style="width: 94px;">{{ item.date }}</button></li>
               </ul>
               <div v-if="tempList.length!=0">
                 <v-form class="d-flex flex-column mt-7 px-5 px-lg-10" ref='bookForm'>
@@ -268,14 +268,16 @@ export default {
       this.tempList = []
       this.bookList.forEach(item => {
         if(item.phoneNumber == this.number){
-          this.tempList.push(item)
+          if(parseInt(item.date.split('/')[2]) >= parseInt(this.today.split('/')[2])){
+            this.tempList.push(item)
+          }
         }
       })
       this.tempList.sort(function(a, b) {
         return a.date.split('/')[2] - b.date.split('/')[2]
       })
       if(this.tempList.length != 0){
-        this.getBook(this.tempList[0].date)
+        this.getBook(`${this.tempList[0].date}+${this.tempList[0].time}`)
       }else{
         this.tempList = []
         this.$refs.checkForm.resetForm();
@@ -287,10 +289,10 @@ export default {
         toast: true
       })}
     },
-    getBook(date) {
+    getBook(check) {
       this.tempList.forEach((item, key) =>{
         this.tempList[key].selected = false
-        if(item.date == date){
+        if(`${item.date}+${item.time}`== check){
           this.tempList[key].selected = true
           this.showBook = item
         }

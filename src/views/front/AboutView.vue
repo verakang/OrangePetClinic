@@ -18,7 +18,7 @@
     <h2 class="text-center mb-7 fst-italic">醫師陣容<span class="display-2 text-secondary subtitle">/Team</span></h2>
     <div class="row col-lg-10 row-cols-1 row-cols-lg-2 gy-7 mx-auto">
       <div class="col">
-        <img src="../../assets/img/doctor_01.jpg" class="w-100 rounded-4" alt="">
+        <img src="../../assets/img/doctor_01.jpg" class="w-100 rounded-4" alt="doctor image">
         <div class="mx-2">
           <h3 class="mt-5 text-primary">林美玲 <span class="fs-5 text-dark">/ 貓狗內科</span></h3>
           學經歷：<br>
@@ -31,7 +31,7 @@
         </div>
       </div>
       <div class="col">
-        <img src="../../assets/img/doctor_02.jpg" class="w-100 rounded-4" alt="">
+        <img src="../../assets/img/doctor_02.jpg" class="w-100 rounded-4" alt="doctor image">
         <div class="mx-2">
           <h3 class="mt-5 text-primary">張文宇 <span class="fs-5 text-dark">/ 貓狗外科</span></h3>
           學經歷：<br>
@@ -44,7 +44,7 @@
         </div>
       </div>
       <div class="col">
-        <img src="../../assets/img/doctor_03.jpg" class="w-100 rounded-4" alt="">
+        <img src="../../assets/img/doctor_03.jpg" class="w-100 rounded-4" alt="doctor image">
         <div class="mx-2">
           <h3 class="mt-5 text-primary">劉雅婷 <span class="fs-5 text-dark">/ 貓狗牙科</span></h3>
           學經歷：<br>
@@ -57,7 +57,7 @@
         </div>
       </div>
       <div class="col">
-        <img src="../../assets/img/doctor_04.jpg" class="w-100 rounded-4" alt="">
+        <img src="../../assets/img/doctor_04.jpg" class="w-100 rounded-4" alt="doctor image">
         <div class="mx-2">
           <h3 class="mt-5 text-primary">王志偉 <span class="fs-5 text-dark">/ 貓狗皮膚科</span></h3>
           學經歷：<br>

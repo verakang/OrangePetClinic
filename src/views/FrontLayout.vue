@@ -86,7 +86,7 @@
       </div>
     </div>
     <div class="text-center bg-primary">
-      <p class="mb-0 py-4 text-secondary">© Copyright 2023 橘子動物醫院 <span class="d-none d-md-inline-block">Orange Pet Clinic - <a href="#" class="link-notice">後台管理</a></span></p>
+      <p class="mb-0 py-4 text-secondary">© Copyright 2023 橘子動物醫院 <span class="d-none d-md-inline-block">Orange Pet Clinic - <RouterLink to="/login" class="link-notice">後台管理</RouterLink></span></p>
     </div>
   </div>
 </template>
